@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+         <script src="lib/jaydata/jaydata.js"></script>
+         <script src="lib/jaydata/jaydatamodules/deferred.js"></script>
+    <script src="scripts/Northwind.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+
+<body>
+    <table id="categoryTable" class="table span3 reset-m" style="margin: 0 10px 10px 0 !important;">
+        <thead>
+            <tr>
+                <th>Category name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <table id="productTable" class="table span6 reset-m" style="margin: 0 10px 10px 0 !important;display:none;">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity Per Unit</th>
+                <th>Unit Price</th>
+                <th>Discontinued</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <div id="editProduct" class="table span3 reset-m noborder_">
+        <div class="well-box" style="display:none;">
+            <form>
+                <fieldset>
+                    <legend class="modal-header">Edit Product</legend>
+
+                    <div class="modal-body" style="max-height: 600px;">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                Product name:
+                                <br />
+                                <input type="text" name="Name" />
+                            </div>
+                            <div class="span12">
+                                English Name:
+                                <br />
+                                <input type="text" name="QuantityPerUnit" />
+                            </div>
+                            <div class="span12">
+                                Unit Price:
+                                <br />
+                                <input type="text" name="UnitPrice" />
+                            </div>
+                            <div class="span12">
+                                Discontinued:
+                                <input type="checkbox" name="Discontinued" checked />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="save" class="btn btn-success tshadow" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="saveResult" class="alert alert-success" style="display:none;">
+            <strong>Success!</strong>
+            <br /> Product has been saved successfully.
+        </div>
+    </div>
+</body>
+
+</html>
