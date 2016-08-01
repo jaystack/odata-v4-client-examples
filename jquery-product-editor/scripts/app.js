@@ -3,9 +3,9 @@ $(function () {
     //configuration attributes of OData provider
     var oProviderConfig = {
         name: 'oData',
-        oDataServiceHost: 'http://localhost:9000/odata'
+        oDataServiceHost: 'http://localhost:3000/odata'
     };
-    var NorthwindContext = $data('JayStack.NorthwindContext')
+    var NorthwindContext = $data('JayStack.NorthwindContext');
 
     var northwindRemote;
     var northwind;
@@ -13,13 +13,13 @@ $(function () {
 
     /*
     // OPTION 1
-    // managing entities through OData endpoint*/
-    // var northwind = new NorthwindContext(oProviderConfig);
+    managing entities through OData endpoint*/
+    var northwind = new NorthwindContext(oProviderConfig);
 
-    // northwind.onReady(function () {
-    //     $('form').bind('submit', saveProduct);
-    //     northwind.Categories.toArray(app.renderCategories);
-    // });
+    northwind.onReady(function () {
+        $('form').bind('submit', saveProduct);
+        northwind.Categories.toArray(app.renderCategories);
+    });
     // END OF OPTION 1
 
     function Application() {
@@ -29,7 +29,7 @@ $(function () {
             var table = $('#categoryTable tbody');
             table.empty();
             dataList.forEach(function (item) {
-                table.append('<tr><td><a onClick="app.loadProduct(' + item.Id + ')">' +
+                table.append('<tr><td><a onClick="app.loadProduct(\'' + item._id + '\')">' +
                     item.Name + '</a></td><td>' + item.Description + '</td></tr>');
             });
         }
@@ -47,7 +47,7 @@ $(function () {
             var table = $('#productTable tbody');
             table.empty();
             dataList.forEach(function (item) {
-                table.append('<tr><td><a onClick="app.editProduct(' + item.Id + ')">'
+                table.append('<tr><td><a onClick="app.editProduct(\'' + item._id + '\')">'
                     + item.Name + '</a></td>'
                     + '<td>' + item.QuantityPerUnit + '</td>'
                     + '<td>' + item.UnitPrice + '</td>'
@@ -56,7 +56,7 @@ $(function () {
         }
         self.editProduct = function (productId) {
             northwind.Products
-                .single(function (product) { return product.Id == this.Id }, { Id: productId }, self.renderEditProduct);
+                .single(function (product) { return product._id == this.Id }, { Id: productId }, self.renderEditProduct);
         }
         self.renderEditProduct = function (product) {
             window.selectedProduct = product;
@@ -100,30 +100,30 @@ $(function () {
 
     // OPTION 3
     //sync entities from OData datasource to local DB using dynamic model
-    $data.initService(oProviderConfig.oDataServiceHost)
-        .then(function (remoteDB, contextFactory, contexType) {
-            northwindRemote = remoteDB;
+    // $data.initService(oProviderConfig.oDataServiceHost)
+    //     .then(function (remoteDB, contextFactory, contexType) {
+    //         northwindRemote = remoteDB;
 
-            var localDB = contextFactory({ name: 'local', databaseName: 'Northwind' });
-            northwind = localDB;
+    //         var localDB = contextFactory({ name: 'local', databaseName: 'Northwind' });
+    //         northwind = localDB;
             
-            remoteDB.onReady(function() {
-                console.log(remoteDB.contextType);
-                localDB.onReady(function(){
-                    resetLocal()
-                    .then(sync)
-                    .then(function () {
-                        $('form').bind('submit', saveProduct);
-                        return northwind.Categories.toArray(renderCategories);
-                    })
-                    .fail(function (reason) {
-                        console.log(reason);
-                    });
-                });
+    //         remoteDB.onReady(function() {
+    //             console.log(remoteDB.contextType);
+    //             localDB.onReady(function(){
+    //                 resetLocal()
+    //                 .then(sync)
+    //                 .then(function () {
+    //                     $('form').bind('submit', saveProduct);
+    //                     return northwind.Categories.toArray(renderCategories);
+    //                 })
+    //                 .fail(function (reason) {
+    //                     console.log(reason);
+    //                 });
+    //             });
                 
-            });
+    //         });
 
-        });
+    //     });
     // END OF OPTION 3
 
     window['app'] = new Application();
