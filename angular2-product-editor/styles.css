@@ -21,9 +21,37 @@
   background-repeat: no-repeat;
 }
 
+/* slide */
+.slide {
+  height: 0px;
+  transition:         height 500ms ease;
+  -moz-transition:    height 500ms ease;
+  -ms-transition:     height 500ms ease;
+  background-color: #EDEDED;
+  border: 1px solid #ddd;
+}
+
+.noborder {
+  border: 0px solid white !important;
+}
+
+.nocollapse {
+  border-collapse: separate !important;
+}
+
 /* body */
 body {
-  background-color: #999
+  background-color: #EDEDED
+}
+
+/* blockquote */
+blockquote {
+  background-color: white;
+  margin: 5%;
+  border: 1px solid #444;
+  border-left-color: #333;
+  border-left-width: 6px;
+  border-radius: 5px;
 }
 
 /* everywhere else */

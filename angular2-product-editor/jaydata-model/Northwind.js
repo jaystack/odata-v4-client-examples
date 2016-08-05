@@ -31,13 +31,8 @@
         CategoryId: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true
         }
-/*        Category: {
-            "type": "Northwind.Category",
-            "inverseProperty": "Products"
-        }*/
     });
 
     types["Northwind.Category"] = $data("$data.Entity").extend("Northwind.Category", {
@@ -80,7 +75,7 @@
         if (ctxType) {
             var cfg = $data.typeSystem.extend({
                 name: "oData",
-                oDataServiceHost: "http://localhost:3000/odata/",
+                oDataServiceHost: "http://localhost:3000/odata",
                 withCredentials: false,
                 maxDataServiceVersion: "4.0"
             }, config);
@@ -89,7 +84,6 @@
             return null;
         }
     };
-
 
     if (typeof Reflect !== "undefined" && typeof Reflect.defineMetadata === "function") {
         Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Product"].prototype, "_id")

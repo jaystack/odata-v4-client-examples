@@ -1,0 +1,27 @@
+<blockquote>
+    <div class="table-responsive">
+        <table class="table nocollapse">
+            <thead>
+                <tr>
+                    <th>Category name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let category of categories">
+                <tr>
+                    <td class="noborder">
+                        <a href="#" (click)="OnClick(products, slider)">{{category.name}}</a>        
+                    </td>
+                    <td class="noborder">{{category.description}}</td>
+                </tr>
+                <tr>
+                    <td class="noborder" colspan="2">
+                        <div #slider class="table-responsive slide">
+                            <products #products category-id="{{category.id}}"></products>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</blockquote>

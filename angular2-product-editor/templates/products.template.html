@@ -1,0 +1,20 @@
+<blockquote>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Quantity / Unit</th>
+                <th>Unit Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>
+                    <a href="#" (click)="OnClick(product.id)">{{product.name}}</a>      
+                </td>
+                <td>{{product.quantityPerUnit}}</td>
+                <td>{{product.unitPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>

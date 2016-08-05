@@ -177,58 +177,25 @@ declare module Edm {
 
 declare module Northwind {
 
-    export class TestItemGroup extends $data.Entity {
-        constructor();
-        constructor(initData: { Id?: Edm.Guid; Name?: Edm.String; Items?: Northwind.TestItemGuid[] });
-
-        Id: Edm.Guid;
-        Name: Edm.String;
-        Items: Northwind.TestItemGuid[];
-    }
-
-    export class TestItemGuid extends $data.Entity {
-        constructor();
-        constructor(initData: { Id?: Edm.Guid; i0?: Edm.Int32; b0?: Edm.Boolean; s0?: Edm.String; time?: Edm.TimeOfDay; date?: Edm.Date; t?: Edm.DateTimeOffset; dur?: Edm.Duration; dtOffset?: Edm.DateTimeOffset; lng?: Edm.Int64; dec?: Edm.Decimal; flt?: Edm.Single; emails?: Edm.String[]; Group?: Northwind.TestItemGroup; GetDisplayText?: $data.ServiceAction; Concatenate?: $data.ServiceAction });
-
-        Id: Edm.Guid;
-        i0: Edm.Int32;
-        b0: Edm.Boolean;
-        s0: Edm.String;
-        time: Edm.TimeOfDay;
-        date: Edm.Date;
-        t: Edm.DateTimeOffset;
-        dur: Edm.Duration;
-        dtOffset: Edm.DateTimeOffset;
-        lng: Edm.Int64;
-        dec: Edm.Decimal;
-        flt: Edm.Single;
-        emails: Edm.String[];
-        Group: Northwind.TestItemGroup;
-        GetDisplayText: { (): Promise<void>; };
-        Concatenate: { (values: Edm.String[]): Promise<void>; };
-    }
-
     export class Category extends $data.Entity {
         constructor();
-        constructor(initData: { Description?: Edm.String; Id?: Edm.Int32; Name?: Edm.String; Products?: Northwind.Product[] });
+        constructor(initData: { Description?: Edm.String; _id?: Edm.String; Name?: Edm.String; Products?: Northwind.Product[] });
 
         Description: Edm.String;
-        Id: Edm.Int32;
+        _id: Edm.String;
         Name: Edm.String;
         Products: Northwind.Product[];
     }
 
     export class Product extends $data.Entity {
         constructor();
-        constructor(initData: { QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Int32; CategoryId?: Edm.Int32; Discontinued?: Edm.Boolean; Id?: Edm.Int32; Name?: Edm.String; Category?: Northwind.Category });
+        constructor(initData: { QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Decimal; _id?: Edm.String; Name?: Edm.String; CategoryId?: Edm.String });
 
         QuantityPerUnit: Edm.String;
-        UnitPrice: Edm.Int32;
-        CategoryId: Edm.Int32;
-        Discontinued: Edm.Boolean;
-        Id: Edm.Int32;
+        UnitPrice: Edm.Decimal;
+        _id: Edm.String;
         Name: Edm.String;
-        Category: Northwind.Category;
+        CategoryId: Edm.String;
     }
 
 }
