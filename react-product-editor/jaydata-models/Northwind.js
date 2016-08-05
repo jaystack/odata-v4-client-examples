@@ -31,13 +31,8 @@
         CategoryId: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true
         }
-/*        Category: {
-            "type": "Northwind.Category",
-            "inverseProperty": "Products"
-        }*/
     });
 
     types["Northwind.Category"] = $data("$data.Entity").extend("Northwind.Category", {
@@ -72,6 +67,11 @@
         Categories: {
             "type": "$data.EntitySet",
             "elementType": "Northwind.Category"
+        },
+        initDb: {
+            "type": "$data.ServiceAction",
+            "returnType": null,
+            "params": []
         }
     });
 
@@ -90,6 +90,7 @@
         }
     };
 
+    exports["context"] = exports.factory();
 
     if (typeof Reflect !== "undefined" && typeof Reflect.defineMetadata === "function") {
         Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Product"].prototype, "_id")

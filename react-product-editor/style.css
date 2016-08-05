@@ -75,3 +75,7 @@
 #container form > div > label{
   flex: 1 1 auto;
 }
+
+#container div.ProductEditor > div{
+  margin-top: 10px;
+}

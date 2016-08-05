@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getProductsByCategoryId, getCategories } from './../actions.js';
+import { getProductsByCategoryId, getCategories, selectCategory } from './../actions.js';
 import CategoryList from './../components/CategoryList.jsx';
 
 const mapStateToProps = (state) => {
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onCategoryClick: (categoryId) => {
+      dispatch(selectCategory(categoryId));
       dispatch(getProductsByCategoryId(categoryId));
     },
     onMount: () => {

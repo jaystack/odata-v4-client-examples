@@ -33,6 +33,7 @@ export default class ProductList extends React.Component{
               }
             </tbody>
           </table>
+          <button onClick={() => {this.props.onAddProductClick()}}>Add product</button>
         </div>
       );
     }
@@ -47,7 +48,8 @@ ProductList.propTypes = {
     _id:                React.PropTypes.string.isRequired,
     Name:               React.PropTypes.string.isRequired,
     QuantityPerUnit:    React.PropTypes.string.isRequired,
-    UnitPrice:          React.PropTypes.string.isRequired,
+    UnitPrice:          React.PropTypes.string.isRequired
   }).isRequired).isRequired,
+  onAddProductClick:    React.PropTypes.func.isRequired,
   onProductClick:       React.PropTypes.func.isRequired
 }

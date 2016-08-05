@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { selectProduct } from './../actions.js';
+import { selectProduct, addProduct } from './../actions.js';
 import ProductList from './../components/ProductList.jsx';
 
 const mapStateToProps = (state) => {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onProductClick: (product) => {
       dispatch(selectProduct(product));
+    },
+    onAddProductClick: () => {
+      dispatch(addProduct());
     }
   }
 }
