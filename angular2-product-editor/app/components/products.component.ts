@@ -1,24 +1,27 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { NorthwindService } from '../services';
-import { JayStack, Northwind } from '../../jaydata-model/Northwind';
+import { Northwind } from '../../jaydata-model/Northwind';
+import { ProductEditorComponent } from './product-editor.component'
 
 @Component({
     selector: 'products',
     templateUrl: './templates/products.template.html'
 })
-export class ProductsComponent
+export class ProductsComponent implements OnInit
 {
     @Input("category-id")
     private categoryId: string;
 
+    @Input("editor")
+    private editor: ProductEditorComponent;
+
     private products = [ ];
-    
     public isActive = false;
     
 
     constructor( private northwindService: NorthwindService ){ }
 
-    init( )
+    openToggle( )
     {
         if( this.isActive )
         {
@@ -26,10 +29,36 @@ export class ProductsComponent
         }
         else
         {
-            this.northwindService.getContext( 
-                context => this.OnContextLoaded( context ) 
-            );
+            this.init( );
         }
+    }
+
+    open( )
+    {
+        this.init( );
+    }
+
+    ngOnInit( )
+    {
+        this.editor.onSaveSub.subscribe( ( categoryId ) =>
+            {
+                if( categoryId === this.categoryId )
+                this.init( )
+            }
+        )
+    }
+
+    add( )
+    {
+        this.editor.init( );
+        this.editor.add( this.categoryId );
+    }
+
+    private init( )
+    {
+        this.northwindService.getContext( 
+            context => this.OnContextLoaded( context ) 
+        );
     }
 
     private OnContextLoaded( context )
@@ -63,8 +92,8 @@ export class ProductsComponent
         );
     }
 
-    OnClick( id:string )
+    private OnClick( id:string )
     {
-        console.info(id);
+        this.editor.targetProduct( id );
     }
 }
