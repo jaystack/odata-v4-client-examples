@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
-import { Northwind } from '../../jaydata-model/Northwind';
+import { JayStack } from '../../jaydata-model/Northwind';
 import "jaydata/odata";
 
 
 @Injectable( )
 export class NorthwindService
 {
-    private context: Northwind.NorthwindContext;
-    private subject: Subject<Northwind.NorthwindContext>;
+    private context: JayStack.NorthwindContext;
+    private subject: Subject<JayStack.NorthwindContext>;
     
     private config = {
         provider: 'oData',
@@ -20,12 +20,12 @@ export class NorthwindService
     {
         this.subject = new Subject( );
 
-        new Northwind.NorthwindContext( this.config )
+        new JayStack.NorthwindContext( this.config )
         .onReady( )
         .then( context => this.onReady( context ) );
     }
 
-    getContext( setContext:( context: Northwind.NorthwindContext )=>void )
+    getContext( setContext:( context: JayStack.NorthwindContext )=>void )
     {
         if( this.context )
         {
@@ -37,7 +37,7 @@ export class NorthwindService
         }
     }
 
-    private onReady( context: Northwind.NorthwindContext )
+    private onReady( context: JayStack.NorthwindContext )
     {
         this.context = context;
         this.subject.next( this.context );

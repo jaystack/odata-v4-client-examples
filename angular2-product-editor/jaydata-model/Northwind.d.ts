@@ -134,13 +134,15 @@ declare module $data{
 
     function implementation(name:string): typeof Base;
 }
-export { $data as $data }
+export {$data as $data}
+
+declare type JSDate = Date;
 
 declare module Edm {
     type Boolean = boolean;
     type Binary = Uint8Array;
-    type DateTime = Date;
-    type DateTimeOffset = Date;
+    type DateTime = JSDate;
+    type DateTimeOffset = JSDate;
     type Duration = string;
     type TimeOfDay = string;
     type Date = string;
@@ -176,8 +178,35 @@ declare module Edm {
         GeographyPoint | GeographyLineString | GeographyPolygon | GeographyMultiPoint | GeographyMultiLineString | GeographyMultiPolygon | GeographyCollection |
         GeometryPoint | GeometryLineString | GeometryPolygon | GeometryMultiPoint | GeometryMultiLineString | GeometryMultiPolygon | GeometryCollection;
 }
+export {Edm as Edm}
 
 declare module Northwind {
+
+    export class Category extends $data.Entity {
+        constructor();
+        constructor(initData: { Description?: Edm.String; _id?: Edm.String; Name?: Edm.String });
+
+        Description: Edm.String;
+        _id: Edm.String;
+        Name: Edm.String;
+    }
+
+    export class Product extends $data.Entity {
+        constructor();
+        constructor(initData: { QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Decimal; _id?: Edm.String; Name?: Edm.String; CategoryId?: Edm.String; Discontinued?: Edm.Boolean });
+
+        QuantityPerUnit: Edm.String;
+        UnitPrice: Edm.Decimal;
+        _id: Edm.String;
+        Name: Edm.String;
+        CategoryId: Edm.String;
+        Discontinued: Edm.Boolean;
+    }
+
+}
+export {Northwind as Northwind}
+
+declare module JayStack {
 
     export class NorthwindContext extends $data.EntityContext {
         onReady(): Promise<NorthwindContext>;
@@ -187,29 +216,8 @@ declare module Northwind {
         initDb: { (): Promise<void>; };
     }
 
-    export class Category extends $data.Entity {
-        constructor();
-        constructor(initData: { Description?: Edm.String; _id?: Edm.String; Name?: Edm.String; Products?: Northwind.Product[] });
-
-        Description: Edm.String;
-        _id: Edm.String;
-        Name: Edm.String;
-        Products: Northwind.Product[];
-    }
-
-    export class Product extends $data.Entity {
-        constructor();
-        constructor(initData: { QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Decimal; _id?: Edm.String; Name?: Edm.String; CategoryId?: Edm.String });
-
-        QuantityPerUnit: Edm.String;
-        UnitPrice: Edm.Decimal;
-        _id: Edm.String;
-        Name: Edm.String;
-        CategoryId: Edm.String;
-    }
-
 }
-export {Northwind as Northwind}
+export {JayStack as JayStack}
 
-export var type: typeof Northwind.NorthwindContext;
-export var factory: (config:any) => Northwind.NorthwindContext;
+export var type: typeof JayStack.NorthwindContext;
+export var factory: (config:any) => JayStack.NorthwindContext;

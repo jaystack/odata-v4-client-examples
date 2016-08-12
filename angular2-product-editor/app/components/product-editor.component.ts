@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NorthwindService } from '../services';
-import { Northwind, factory, type } from '../../jaydata-model/Northwind';
+import { JayStack, Northwind, factory, type } from '../../jaydata-model/Northwind';
 import { Subject } from "rxjs/Subject";
 
 @Component({
@@ -11,7 +11,7 @@ export class ProductEditorComponent
 {
     public onSaveSub: Subject<string>
 
-    private context: Northwind.NorthwindContext
+    private context: JayStack.NorthwindContext
     private originProduct: Northwind.Product
     private categoryId: string
     private product : { 

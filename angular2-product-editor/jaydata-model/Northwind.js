@@ -22,8 +22,8 @@
         _id: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true,
+            "key": true
         },
         Name: {
             "type": "Edm.String",
@@ -32,6 +32,11 @@
         },
         CategoryId: {
             "type": "Edm.String",
+            "nullable": false,
+            "required": true
+        },
+        Discontinued: {
+            "type": "Edm.Boolean",
             "nullable": false,
             "required": true
         }
@@ -46,22 +51,17 @@
         _id: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true,
+            "key": true
         },
         Name: {
             "type": "Edm.String",
             "nullable": false,
             "required": true
-        },
-        Products: {
-            "type": "Array",
-            "elementType": "Northwind.Product",
-            "inverseProperty": "Category"
         }
     });
 
-    exports.type = types["Northwind.NorthwindContext"] = $data("$data.EntityContext").extend("Northwind.NorthwindContext", {
+    exports.type = types["JayStack.NorthwindContext"] = $data("$data.EntityContext").extend("JayStack.NorthwindContext", {
         Products: {
             "type": "$data.EntitySet",
             "elementType": "Northwind.Product"
@@ -79,8 +79,11 @@
 
     exports.Northwind = {
         "Product": types["Northwind.Product"],
-        "Category": types["Northwind.Category"],
-        "NorthwindContext": types["Northwind.NorthwindContext"]
+        "Category": types["Northwind.Category"]
+    };
+
+    exports.JayStack = {
+        "NorthwindContext": types["JayStack.NorthwindContext"]
     };
 
     var ctxType = exports.type;
@@ -88,7 +91,7 @@
         if (ctxType) {
             var cfg = $data.typeSystem.extend({
                 name: "oData",
-                oDataServiceHost: "http://localhost:3000/odata",
+                oDataServiceHost: "http://localhost:3000/odata/",
                 withCredentials: false,
                 maxDataServiceVersion: "4.0"
             }, config);
@@ -99,10 +102,8 @@
     };
 
     if (typeof Reflect !== "undefined" && typeof Reflect.defineMetadata === "function") {
-        Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Product"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Product identifier", types["Northwind.Product"].prototype, "_id")
         Reflect.defineMetadata("UI.ControlHint", "ReadOnly", types["Northwind.Product"].prototype, "_id")
-        Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Category identifier", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.ControlHint", "ReadOnly", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Categories", types["Northwind.Category"].prototype)

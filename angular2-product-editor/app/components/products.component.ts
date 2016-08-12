@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { NorthwindService } from '../services';
-import { Northwind } from '../../jaydata-model/Northwind';
+import { JayStack } from '../../jaydata-model/Northwind';
 import { ProductEditorComponent } from './product-editor.component'
 
 @Component({

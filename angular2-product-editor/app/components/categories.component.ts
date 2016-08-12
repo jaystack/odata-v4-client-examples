@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NorthwindService } from '../services';
-import { Northwind } from '../../jaydata-model/Northwind';
+import { JayStack } from '../../jaydata-model/Northwind';
 import { ProductsComponent } from './products.component';
 import { ProductEditorComponent } from './product-editor.component';
 
@@ -12,7 +12,7 @@ import { ProductEditorComponent } from './product-editor.component';
 export class CategoriesComponent
 {
     private categories = [ ];
-    private context: Northwind.NorthwindContext
+    private context: JayStack.NorthwindContext
 
     constructor( northwindService: NorthwindService ) 
     {
