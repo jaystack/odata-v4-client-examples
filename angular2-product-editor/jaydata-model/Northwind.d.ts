@@ -19,7 +19,7 @@ declare module $data{
     class GeometryMultiPolygon{}
     class GeometryMultiLineString{}
     class GeometryCollection{}
-    
+
     const enum EntityState{
         Detached = 0,
         Unchanged = 10,
@@ -27,7 +27,7 @@ declare module $data{
         Modified = 30,
         Deleted = 40
     }
-    
+
     interface MemberDefinition{
         name: string;
         type: any;
@@ -48,7 +48,7 @@ declare module $data{
         storeOnObject: boolean;
         monitorChanges: boolean;
     }
-    
+
     interface Event{
         attach(eventHandler: (sender: any, event: any) => void ): void;
         detach(eventHandler: () => void ): void;
@@ -58,34 +58,34 @@ declare module $data{
     class Base<T>{
         constructor();
         getType: () => typeof Base;
-        
+
         static addProperty(name:string, getterOrType:string | Function, setterOrGetter?:Function, setter?:Function): void;
         static addMember(name:string, definition:any, isClassMember?:boolean): void;
         static describeField(name:string, definition:any): void;
-        
+
         static hasMetadata(key:string, property?:string): boolean;
         static getAllMetadata(property?:string): any;
         static getMetadata(key:string, property?:string): any;
         static setMetadata(key:string, value:any, property?:string): void;
     }
-    
+
     class Enum extends Base<Enum>{
         static extend(name:string, instanceDefinition:any, classDefinition?:any): Base<Enum>;
     }
     function createEnum(name:string, enumType:any, enumDefinition?:any): Base<Enum>;
-    
+
     class Entity extends Base<Entity>{
         static extend(name:string, instanceDefinition:any, classDefinition?:any): Base<Entity>;
-        
+
         entityState: EntityState;
         changedProperties: MemberDefinition[];
-        
+
         propertyChanging: Event;
         propertyChanged: Event;
         propertyValidationError: Event;
         isValid: boolean;
     }
-    
+
     class EntitySet<Ttype extends typeof Entity, T extends Entity> extends Queryable<T>{
         add(item: T): T;
         add(initData: {}): T;
@@ -99,11 +99,12 @@ declare module $data{
         remove(item: {}): void;
         elementType: Ttype;
     }
-    
+
     class EntityContext extends Base<EntityContext>{
         constructor(config?: any);
         onReady(): Promise<EntityContext>;
         saveChanges(): Promise<number>;
+        stateManager: {reset: Function};
         static extend(name:string, instanceDefinition:any, classDefinition?:any): Base<EntityContext>;
     }
 
@@ -130,9 +131,10 @@ declare module $data{
     }
     class ServiceAction{}
     class ServiceFunction{}
-    
+
     function implementation(name:string): typeof Base;
 }
+export { $data as $data }
 
 declare module Edm {
     type Boolean = boolean;
@@ -177,6 +179,14 @@ declare module Edm {
 
 declare module Northwind {
 
+    export class NorthwindContext extends $data.EntityContext {
+        onReady(): Promise<NorthwindContext>;
+
+        Products: $data.EntitySet<typeof Northwind.Product, Northwind.Product>;
+        Categories: $data.EntitySet<typeof Northwind.Category, Northwind.Category>;
+        initDb: { (): Promise<void>; };
+    }
+
     export class Category extends $data.Entity {
         constructor();
         constructor(initData: { Description?: Edm.String; _id?: Edm.String; Name?: Edm.String; Products?: Northwind.Product[] });
@@ -199,23 +209,7 @@ declare module Northwind {
     }
 
 }
+export {Northwind as Northwind}
 
-declare module JayStack {
-
-    export class NorthwindContext extends $data.EntityContext {
-        onReady(): Promise<NorthwindContext>;
-
-        Products: $data.EntitySet<typeof Northwind.Product, Northwind.Product>;
-        Categories: $data.EntitySet<typeof Northwind.Category, Northwind.Category>;
-        Delete: { (): Promise<void>; };
-        InitDb: { (): Promise<void>; };
-        SAction1: { (number: Edm.Int32): Promise<void>; };
-        SAction2: { (count: Edm.Int32): Promise<void>; };
-        SFunction1: { (number: Edm.Int32): $data.Queryable<Edm.String>; };
-        SFunction2: { (number: Edm.Int32): Promise<Edm.String>; };
-    }
-
-}
-
-export var type: typeof JayStack.NorthwindContext;
-export var factory: (config:any) => JayStack.NorthwindContext;
+export var type: typeof Northwind.NorthwindContext;
+export var factory: (config:any) => Northwind.NorthwindContext;

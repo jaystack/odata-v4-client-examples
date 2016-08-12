@@ -10,7 +10,7 @@
         <tbody>
             <tr *ngFor="let product of products">
                 <td>
-                    <a href="#" (click)="OnClick(product.id)">{{product.name}}</a>      
+                    <a href="#" data-toggle="modal" data-target="#editor" (click)="OnClick(product.id)">{{product.name}}</a>      
                 </td>
                 <td>{{product.quantityPerUnit}}</td>
                 <td>{{product.unitPrice}}</td>

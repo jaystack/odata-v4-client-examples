@@ -4,6 +4,8 @@
     mod($data.generatedContext || ($data.generatedContext = {}), $data); // Plain browser env
 })(function(exports, $data) {
 
+    exports.$data = $data;
+
     var types = {};
 
     types["Northwind.Product"] = $data("$data.Entity").extend("Northwind.Product", {
@@ -59,7 +61,7 @@
         }
     });
 
-    exports.type = types["JayStack.NorthwindContext"] = $data("$data.EntityContext").extend("JayStack.NorthwindContext", {
+    exports.type = types["Northwind.NorthwindContext"] = $data("$data.EntityContext").extend("Northwind.NorthwindContext", {
         Products: {
             "type": "$data.EntitySet",
             "elementType": "Northwind.Product"
@@ -67,8 +69,19 @@
         Categories: {
             "type": "$data.EntitySet",
             "elementType": "Northwind.Category"
+        },
+        initDb: {
+            "type": "$data.ServiceAction",
+            "returnType": null,
+            "params": []
         }
     });
+
+    exports.Northwind = {
+        "Product": types["Northwind.Product"],
+        "Category": types["Northwind.Category"],
+        "NorthwindContext": types["Northwind.NorthwindContext"]
+    };
 
     var ctxType = exports.type;
     exports.factory = function(config) {
