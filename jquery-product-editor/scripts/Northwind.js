@@ -4,6 +4,8 @@
     mod($data.generatedContext || ($data.generatedContext = {}), $data); // Plain browser env
 })(function(exports, $data) {
 
+    exports.$data = $data;
+
     var types = {};
 
     types["Northwind.Product"] = $data("$data.Entity").extend("Northwind.Product", {
@@ -20,8 +22,8 @@
         _id: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true,
+            "key": true
         },
         Name: {
             "type": "Edm.String",
@@ -31,13 +33,13 @@
         CategoryId: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true
+        },
+        Discontinued: {
+            "type": "Edm.Boolean",
+            "nullable": false,
+            "required": true
         }
-/*        Category: {
-            "type": "Northwind.Category",
-            "inverseProperty": "Products"
-        }*/
     });
 
     types["Northwind.Category"] = $data("$data.Entity").extend("Northwind.Category", {
@@ -49,18 +51,13 @@
         _id: {
             "type": "Edm.String",
             "nullable": false,
-            "key": true,
-            "computed": true
+            "required": true,
+            "key": true
         },
         Name: {
             "type": "Edm.String",
             "nullable": false,
             "required": true
-        },
-        Products: {
-            "type": "Array",
-            "elementType": "Northwind.Product",
-            "inverseProperty": "Category"
         }
     });
 
@@ -72,8 +69,22 @@
         Categories: {
             "type": "$data.EntitySet",
             "elementType": "Northwind.Category"
+        },
+        initDb: {
+            "type": "$data.ServiceAction",
+            "returnType": null,
+            "params": []
         }
     });
+
+    exports.Northwind = {
+        "Product": types["Northwind.Product"],
+        "Category": types["Northwind.Category"]
+    };
+
+    exports.JayStack = {
+        "NorthwindContext": types["JayStack.NorthwindContext"]
+    };
 
     var ctxType = exports.type;
     exports.factory = function(config) {
@@ -90,12 +101,9 @@
         }
     };
 
-
     if (typeof Reflect !== "undefined" && typeof Reflect.defineMetadata === "function") {
-        Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Product"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Product identifier", types["Northwind.Product"].prototype, "_id")
         Reflect.defineMetadata("UI.ControlHint", "ReadOnly", types["Northwind.Product"].prototype, "_id")
-        Reflect.defineMetadata("Org.OData.Core.V1.Computed", "true", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Category identifier", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.ControlHint", "ReadOnly", types["Northwind.Category"].prototype, "_id")
         Reflect.defineMetadata("UI.DisplayName", "Categories", types["Northwind.Category"].prototype)
