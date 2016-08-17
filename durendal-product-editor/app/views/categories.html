@@ -1,0 +1,34 @@
+<div data-bind="compose: $root.productEditor"></div>
+<blockquote>
+    <div class="table-responsive">
+        <table class="table nocollapse">
+            <thead>
+                <tr>
+                    <th>Category name</th>
+                    <th>Description</th>
+                    <th>
+                        <button class="btn btn-success" data-bind="click: $root.initDB.bind($root)">Refresh DB</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: { data: $root.categories, as: 'category' }">
+                <tr>
+                    <td class="noborder">
+                        <a href="#" data-bind="text: category.Name, click: $root.toggleOpen.bind($root, $index())"></a>
+                    </td>
+                    <td class="noborder" data-bind="text: category.Description"></td>
+                    <td class="noborder">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#editor" data-bind="click: $root.OnAdd.bind($root, $index(), category._id)">Add</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noborder" colspan="3">
+                        <div class="table-responsive slide">
+                            <div data-bind="compose: $root.products[$index()]"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</blockquote>

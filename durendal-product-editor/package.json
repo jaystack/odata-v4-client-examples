@@ -1,0 +1,19 @@
+{
+  "name": "durendal-product-editor",
+  "version": "1.0.0",
+  "description": "JayData Product Editor",
+  "main": "index.html",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaystack/odata-v4-client-examples/"
+  },
+  "author": "PeterHragyil",
+  "license": "ISC"
+}

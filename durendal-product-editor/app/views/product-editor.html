@@ -1,0 +1,42 @@
+<div id="editor" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Product <span data-bind="text: action"></span></h4>
+      </div>
+      <div class="modal-body">
+        <label for="product_name">Product name</label>
+        <input id="product_name" type="text" class="form-control" data-bind="value: name">
+        <br>
+        <label for="quantity_per_unit">Quantity / Unit</label>
+        <input id="quantity_per_unit" type="text" class="form-control" data-bind="value: quantityPerUnit">
+        <br>
+        <label for="unit_price">Unit Price</label>
+        <input id="unit_price" type="text" class="form-control" data-bind="value: unitPrice">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#notify" data-bind="click: $root.onSave.bind($root)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="notify" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" data-bind="text: notifyText"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

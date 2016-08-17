@@ -1,0 +1,20 @@
+<blockquote>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Quantity / Unit</th>
+                <th>Unit Price</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:{ data: $root.products, as:'product' }">
+            <tr>
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#editor" data-bind="text: product.Name, click: $root.handleSelect.bind($root, product._id)"></a>
+                </td>
+                <td data-bind="text: product.QuantityPerUnit"></td>
+                <td data-bind="text: product.UnitPrice"></td>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>
