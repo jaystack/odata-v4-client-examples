@@ -2,8 +2,6 @@ define(function (require) {
     var northwind = require('services/northwind'),
         ko = require('knockout');
 
-    console.warn("Loaded: ProductEditor");
-
     var context = northwind.getContext();
 
     function Model() {

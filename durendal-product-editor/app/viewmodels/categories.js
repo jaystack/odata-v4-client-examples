@@ -50,18 +50,25 @@ define(function (require) {
 
     Model.prototype.OnAdd = function OnAdd(indexOfProducts, categoryId) {
         var slide = $(".slide")[indexOfProducts];
-        slide.style.height = "100%";
+        if (slide.style.height === "") {
+            this.products[indexOfProducts].model.init(
+                function () {
+                    slide.style.height = "100%";
+                }
+            );
+        }
 
         this.productEditor.model.add(
             categoryId,
-            this.categories()[indexOfProducts].products.model
+            this.products[indexOfProducts].model
         );
     };
 
     Model.prototype.initDB = function initDB() {
+        var _this = this;
         context.initDb()
             .then(function () {
-                var categories = this.categories();
+                var categories = _this.categories();
                 categories.forEach(function (category) {
                     category.products.model.init();
                 });
