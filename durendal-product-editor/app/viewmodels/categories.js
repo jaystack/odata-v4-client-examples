@@ -68,9 +68,8 @@ define(function (require) {
         var _this = this;
         context.initDb()
             .then(function () {
-                var categories = _this.categories();
-                categories.forEach(function (category) {
-                    category.products.model.init();
+                _this.products.forEach(function (product) {
+                    product.model.init();
                 });
             })
     };
