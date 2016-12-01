@@ -1,20 +1,19 @@
 $(function () {
-    
+
     //configuration attributes of OData provider
     var oProviderConfig = {
         name: 'oData',
-        oDataServiceHost: 'http://localhost:3000/odata'
+        oDataServiceHost: 'http://odata-v4-demo.jaystack.net/api'
     };
 
     var northwindRemote;
     var northwind;
     var app;
 
-
     /*
     // OPTION 1
     managing entities through OData endpoint*/
-    var NorthwindContext = $data('JayStack.NorthwindContext');
+    var NorthwindContext = $data('Northwind.Default');
     var northwind = new NorthwindContext(oProviderConfig);
 
     northwind.onReady(function () {
@@ -67,7 +66,6 @@ $(function () {
             $('form [name="Discontinued"]').prop('checked', product['Discontinued']);
             $('.well-box').show();
         }
-
     }
 
 
@@ -92,11 +90,11 @@ $(function () {
     //         .fail(function (reason) {
     //             console.log(reason);
     //         });
-         
+
     //     });
     // });
     // END OF OPTION 2
-    
+
 
     // OPTION 3
     //sync entities from OData datasource to local DB using dynamic model
@@ -106,7 +104,7 @@ $(function () {
 
     //         var localDB = contextFactory({ name: 'local', databaseName: 'Northwind' });
     //         northwind = localDB;
-            
+
     //         remoteDB.onReady(function() {
     //             localDB.onReady(function(){
     //                 resetLocal()
@@ -119,27 +117,27 @@ $(function () {
     //                     console.log(reason);
     //                 });
     //             });
-                
+
     //         });
 
     //     });
     // END OF OPTION 3
 
     window['app'] = app = new Application();
-    
+
     //clears entities from local database
     function resetLocal() {
         return northwind.Categories.toArray()
-            .then(function(categories) {
+            .then(function (categories) {
                 categories.forEach(function (c) { northwind.Categories.remove(c); });
             })
-            .then(function() {
+            .then(function () {
                 return northwindRemote.Products.toArray()
                     .then(function (products) {
-                        products.forEach(function(p) { northwind.Products.remove(p) })
+                        products.forEach(function (p) { northwind.Products.remove(p) })
                     })
             })
-            .then(function() {
+            .then(function () {
                 return northwind.saveChanges();
             })
     }
@@ -147,19 +145,19 @@ $(function () {
     //sync entities from OData to local database
     function sync() {
         return northwindRemote.Categories.toArray()
-                .then(function (categories) {
-                    northwind.Categories.addMany(categories);
-                })
-                .then(function (){
-                    return northwindRemote.Products.toArray()
+            .then(function (categories) {
+                northwind.Categories.addMany(categories);
+            })
+            .then(function () {
+                return northwindRemote.Products.toArray()
                     .then(function (products) {
                         northwind.Products.addMany(products);
                     })
-                })
-                .then(function(){
-                    return northwind.saveChanges();
-                })
-            
+            })
+            .then(function () {
+                return northwind.saveChanges();
+            })
+
     }
 
     function renderCategories(dataList) {
@@ -170,8 +168,6 @@ $(function () {
                 item.Name + '</a></td><td>' + item.Description + '</td></tr>');
         });
     }
-
-
 
     function saveProduct() {
         //attach the selected product entity to JayData context
@@ -184,7 +180,9 @@ $(function () {
         });
         selectedProduct.Discontinued = !!$('form [name = "Discontinued"]').is(':checked');
         //save the modified product to our remote database through OData using JayData 
-        northwind.saveChanges().then(function(){
+
+        northwind.saveChanges().then(function () {
+
             //display a message to the user
             var result = $('#saveResult');
             result.show();

@@ -1,4 +1,4 @@
-// JayData 1.5.5 RC
+// JayData 1.5.10 
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -1020,7 +1020,7 @@ _core2.default.SqLiteConverter = {
         "$data.Time": _core2.default.Container.proxyConverter,
         "$data.String": _core2.default.Container.proxyConverter,
         "$data.Boolean": function $dataBoolean(b) {
-            return b === 1 ? true : false;
+            return _core.Guard.isNullOrUndefined(b) ? b : b === 1 ? true : false;
         },
         "$data.Blob": function $dataBlob(b) {
             return b ? _core2.default.Container.convertTo(atob(b), _core2.default.Blob) : b;
@@ -1132,7 +1132,7 @@ _core2.default.SqLiteConverter = {
         "$data.Time": _core2.default.Container.proxyConverter,
         "$data.String": _core2.default.Container.proxyConverter,
         "$data.Boolean": function $dataBoolean(b) {
-            return b ? 1 : 0;
+            return _core.Guard.isNullOrUndefined(b) ? b : b ? 1 : 0;
         },
         "$data.Blob": function $dataBlob(b) {
             return b ? _core2.default.Blob.toBase64(b) : b;
