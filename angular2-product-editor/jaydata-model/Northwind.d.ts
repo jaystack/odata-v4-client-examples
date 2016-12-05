@@ -182,42 +182,42 @@ export {Edm as Edm}
 
 declare module Northwind {
 
+    export class Default extends $data.EntityContext {
+        onReady(): Promise<Default>;
+
+        Categories: $data.EntitySet<typeof Northwind.Category, Northwind.Category>;
+        Products: $data.EntitySet<typeof Northwind.Product, Northwind.Product>;
+        initDb: { (): Promise<void>; };
+    }
+
     export class Category extends $data.Entity {
         constructor();
-        constructor(initData: { Description?: Edm.String; _id?: Edm.String; Name?: Edm.String });
+        constructor(initData: { _id?: Edm.String; Description?: Edm.String; Name?: Edm.String; Products?: Northwind.Product[] });
 
-        Description: Edm.String;
         _id: Edm.String;
+        Description: Edm.String;
         Name: Edm.String;
+        Products: Northwind.Product[];
     }
 
     export class Product extends $data.Entity {
         constructor();
-        constructor(initData: { QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Decimal; _id?: Edm.String; Name?: Edm.String; CategoryId?: Edm.String; Discontinued?: Edm.Boolean });
+        constructor(initData: { _id?: Edm.String; CategoryId?: Edm.String; Discontinued?: Edm.Boolean; Name?: Edm.String; QuantityPerUnit?: Edm.String; UnitPrice?: Edm.Decimal; getUnitPrice?: $data.ServiceFunction; Category?: Northwind.Category; invertDiscontinued?: $data.ServiceAction; setDiscontinued?: $data.ServiceAction });
 
-        QuantityPerUnit: Edm.String;
-        UnitPrice: Edm.Decimal;
         _id: Edm.String;
-        Name: Edm.String;
         CategoryId: Edm.String;
         Discontinued: Edm.Boolean;
+        Name: Edm.String;
+        QuantityPerUnit: Edm.String;
+        UnitPrice: Edm.Decimal;
+        getUnitPrice: { (): Promise<Edm.Decimal>; };
+        Category: Northwind.Category;
+        invertDiscontinued: { (): Promise<void>; };
+        setDiscontinued: { (value: Edm.Boolean): Promise<void>; };
     }
 
 }
 export {Northwind as Northwind}
 
-declare module JayStack {
-
-    export class NorthwindContext extends $data.EntityContext {
-        onReady(): Promise<NorthwindContext>;
-
-        Products: $data.EntitySet<typeof Northwind.Product, Northwind.Product>;
-        Categories: $data.EntitySet<typeof Northwind.Category, Northwind.Category>;
-        initDb: { (): Promise<void>; };
-    }
-
-}
-export {JayStack as JayStack}
-
-export var type: typeof JayStack.NorthwindContext;
-export var factory: (config:any) => JayStack.NorthwindContext;
+export var type: typeof Northwind.Default;
+export var factory: (config:any) => Northwind.Default;

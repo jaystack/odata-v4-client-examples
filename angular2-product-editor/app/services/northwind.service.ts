@@ -13,7 +13,7 @@ export class NorthwindService
     
     private config = {
         provider: 'oData',
-        oDataServiceHost: "http://localhost:3000/odata"
+        oDataServiceHost: "http://odata-v4-demo.jaystack.net/api"
     };
 
     constructor( )
