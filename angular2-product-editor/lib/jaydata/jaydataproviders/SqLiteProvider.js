@@ -1,4 +1,4 @@
-// JayData 1.5.5 RC
+// JayData 1.5.1 CTP
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -11,10 +11,19 @@
 //     Zoltán Gyebrovszki, Gábor Dolla
 //
 // More info: http://jaydata.org
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define("jaydata/sqlite",["jaydata/core"],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function(){
+	var interopDefine;
+	if (typeof define != 'function' || (typeof define == 'function' && !define.amd)){
+		interopDefine = function(deps, callback){
+			callback();
+		};
+	}else interopDefine = define;
+
+	interopDefine(['jaydata'], function(){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -28,10 +37,10 @@ _core2.default.Class.define('$data.dbClient.DbCommand', null, null, {
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],2:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],2:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -54,10 +63,10 @@ _core2.default.Class.define('$data.dbClient.DbConnection', null, null, {
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],3:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],3:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -129,10 +138,10 @@ _core2.default.Class.define('$data.dbClient.jayStorageClient.JayStorageCommand',
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],4:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],4:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -161,10 +170,10 @@ _core2.default.Class.define('$data.dbClient.jayStorageClient.JayStorageConnectio
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],5:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],5:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -244,10 +253,10 @@ _core2.default.Class.define('$data.dbClient.openDatabaseClient.OpenDbCommand', _
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],6:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],6:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -307,10 +316,10 @@ _core2.default.Class.define('$data.dbClient.openDatabaseClient.OpenDbConnection'
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],7:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],7:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -386,10 +395,10 @@ _core2.default.Class.define('$data.dbClient.sqLiteNJClient.SqLiteNjCommand', _co
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],8:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],8:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -417,10 +426,10 @@ _core2.default.Class.define('$data.dbClient.sqLiteNJClient.SqLiteNjConnection', 
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],9:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],9:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -682,7 +691,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],10:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -690,7 +699,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SqlStatementBlocks = undefined;
 
-var _core = _dereq_("jaydata/core");
+var _core = require("jaydata/core");
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -986,10 +995,10 @@ _core2.default.Expressions.ExpressionNode.prototype.monitor = function (monitorD
     }
 }, null);
 
-},{"jaydata/core":"jaydata/core"}],11:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],11:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -997,11 +1006,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _core2.default.SqLiteConverter = {
     fromDb: {
-        '$data.Enum': function $dataEnum(v, enumType) {
-            return _core2.default.Container.convertTo(v, enumType);
-        },
-        '$data.Duration': _core2.default.Container.proxyConverter,
-        '$data.Day': _core2.default.Container.proxyConverter,
         '$data.Byte': _core2.default.Container.proxyConverter,
         '$data.SByte': _core2.default.Container.proxyConverter,
         '$data.Decimal': _core2.default.Container.proxyConverter,
@@ -1111,9 +1115,6 @@ _core2.default.SqLiteConverter = {
         }
     },
     toDb: {
-        '$data.Enum': _core2.default.Container.proxyConverter,
-        '$data.Duration': _core2.default.Container.proxyConverter,
-        '$data.Day': _core2.default.Container.proxyConverter,
         '$data.Byte': _core2.default.Container.proxyConverter,
         '$data.SByte': _core2.default.Container.proxyConverter,
         '$data.Decimal': _core2.default.Container.proxyConverter,
@@ -1234,9 +1235,7 @@ _core2.default.SqLiteFieldMapping = {
     "$data.Int32": "INTEGER",
     "$data.Number": "REAL",
     "$data.Date": "REAL",
-    "$data.Duration": "TEXT",
     "$data.Time": "TEXT",
-    "$data.Day": "TEXT",
     "$data.DateTimeOffset": "REAL",
     "$data.String": "TEXT",
     "$data.Boolean": "INTEGER",
@@ -1260,10 +1259,10 @@ _core2.default.SqLiteFieldMapping = {
     '$data.GeometryCollection': "TEXT"
 };
 
-},{"jaydata/core":"jaydata/core"}],12:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],12:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1319,9 +1318,9 @@ _core2.default.Class.define('$data.storageProviders.sqLite.SqLiteStorageProvider
 
         return connection;
     },
-
+    //$data.Array,
     supportedDataTypes: {
-        value: [_core2.default.Array, _core2.default.Integer, _core2.default.String, _core2.default.Number, _core2.default.Blob, _core2.default.Array, _core2.default.Object, _core2.default.Boolean, _core2.default.Date, _core2.default.Guid, _core2.default.GeographyPoint, _core2.default.GeographyLineString, _core2.default.GeographyPolygon, _core2.default.GeographyMultiPoint, _core2.default.GeographyMultiLineString, _core2.default.GeographyMultiPolygon, _core2.default.GeographyCollection, _core2.default.GeometryPoint, _core2.default.GeometryLineString, _core2.default.GeometryPolygon, _core2.default.GeometryMultiPoint, _core2.default.GeometryMultiLineString, _core2.default.GeometryMultiPolygon, _core2.default.GeometryCollection, _core2.default.Byte, _core2.default.SByte, _core2.default.Decimal, _core2.default.Float, _core2.default.Int16, _core2.default.Int32, _core2.default.Int64, _core2.default.Time, _core2.default.DateTimeOffset, _core2.default.Duration, _core2.default.Day],
+        value: [_core2.default.Array, _core2.default.Integer, _core2.default.String, _core2.default.Number, _core2.default.Blob, _core2.default.Array, _core2.default.Object, _core2.default.Boolean, _core2.default.Date, _core2.default.Guid, _core2.default.GeographyPoint, _core2.default.GeographyLineString, _core2.default.GeographyPolygon, _core2.default.GeographyMultiPoint, _core2.default.GeographyMultiLineString, _core2.default.GeographyMultiPolygon, _core2.default.GeographyCollection, _core2.default.GeometryPoint, _core2.default.GeometryLineString, _core2.default.GeometryPolygon, _core2.default.GeometryMultiPoint, _core2.default.GeometryMultiLineString, _core2.default.GeometryMultiPolygon, _core2.default.GeometryCollection, _core2.default.Byte, _core2.default.SByte, _core2.default.Decimal, _core2.default.Float, _core2.default.Int16, _core2.default.Int32, _core2.default.Int64, _core2.default.Time, _core2.default.DateTimeOffset],
         writable: false
     },
     fieldConverter: { value: _core2.default.SqLiteConverter },
@@ -1932,10 +1931,10 @@ if (_core2.default.storageProviders.sqLite.SqLiteStorageProvider.isSupported) {
     _core2.default.webSqlProvider = _core2.default.storageProviders.sqLite.SqLiteStorageProvider;
 }
 
-},{"jaydata/core":"jaydata/core"}],13:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],13:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1970,14 +1969,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 });
 
-},{"jaydata/core":"jaydata/core"}],14:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],14:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _SqLiteCompiler = _dereq_('./SqLiteCompiler.js');
+var _SqLiteCompiler = require('./SqLiteCompiler.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2122,14 +2121,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],15:[function(_dereq_,module,exports){
+},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],15:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _SqLiteCompiler = _dereq_('./SqLiteCompiler.js');
+var _SqLiteCompiler = require('./SqLiteCompiler.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2173,14 +2172,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],16:[function(_dereq_,module,exports){
+},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],16:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _SqLiteCompiler = _dereq_('./SqLiteCompiler.js');
+var _SqLiteCompiler = require('./SqLiteCompiler.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2200,14 +2199,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],17:[function(_dereq_,module,exports){
+},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],17:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _SqLiteCompiler = _dereq_('./SqLiteCompiler.js');
+var _SqLiteCompiler = require('./SqLiteCompiler.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2455,82 +2454,82 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 }, null);
 
-},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],18:[function(_dereq_,module,exports){
+},{"./SqLiteCompiler.js":10,"jaydata/core":"jaydata/core"}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _DbCommand = _dereq_('../../DbClient/DbCommand.js');
+var _DbCommand = require('../../DbClient/DbCommand.js');
 
 var _DbCommand2 = _interopRequireDefault(_DbCommand);
 
-var _DbConnection = _dereq_('../../DbClient/DbConnection.js');
+var _DbConnection = require('../../DbClient/DbConnection.js');
 
 var _DbConnection2 = _interopRequireDefault(_DbConnection);
 
-var _OpenDbCommand = _dereq_('../../DbClient/OpenDatabaseClient/OpenDbCommand.js');
+var _OpenDbCommand = require('../../DbClient/OpenDatabaseClient/OpenDbCommand.js');
 
 var _OpenDbCommand2 = _interopRequireDefault(_OpenDbCommand);
 
-var _OpenDbConnection = _dereq_('../../DbClient/OpenDatabaseClient/OpenDbConnection.js');
+var _OpenDbConnection = require('../../DbClient/OpenDatabaseClient/OpenDbConnection.js');
 
 var _OpenDbConnection2 = _interopRequireDefault(_OpenDbConnection);
 
-var _JayStorageCommand = _dereq_('../../DbClient/JayStorageClient/JayStorageCommand.js');
+var _JayStorageCommand = require('../../DbClient/JayStorageClient/JayStorageCommand.js');
 
 var _JayStorageCommand2 = _interopRequireDefault(_JayStorageCommand);
 
-var _JayStorageConnection = _dereq_('../../DbClient/JayStorageClient/JayStorageConnection.js');
+var _JayStorageConnection = require('../../DbClient/JayStorageClient/JayStorageConnection.js');
 
 var _JayStorageConnection2 = _interopRequireDefault(_JayStorageConnection);
 
-var _SqLiteNjCommand = _dereq_('../../DbClient/SqLiteNjClient/SqLiteNjCommand.js');
+var _SqLiteNjCommand = require('../../DbClient/SqLiteNjClient/SqLiteNjCommand.js');
 
 var _SqLiteNjCommand2 = _interopRequireDefault(_SqLiteNjCommand);
 
-var _SqLiteNjConnection = _dereq_('../../DbClient/SqLiteNjClient/SqLiteNjConnection.js');
+var _SqLiteNjConnection = require('../../DbClient/SqLiteNjClient/SqLiteNjConnection.js');
 
 var _SqLiteNjConnection2 = _interopRequireDefault(_SqLiteNjConnection);
 
-var _SqLiteConverter = _dereq_('./SqLiteConverter.js');
+var _SqLiteConverter = require('./SqLiteConverter.js');
 
 var _SqLiteConverter2 = _interopRequireDefault(_SqLiteConverter);
 
-var _SqLiteStorageProvider = _dereq_('./SqLiteStorageProvider.js');
+var _SqLiteStorageProvider = require('./SqLiteStorageProvider.js');
 
 var _SqLiteStorageProvider2 = _interopRequireDefault(_SqLiteStorageProvider);
 
-var _SqLiteCompiler = _dereq_('./SqLiteCompiler.js');
+var _SqLiteCompiler = require('./SqLiteCompiler.js');
 
 var _SqLiteCompiler2 = _interopRequireDefault(_SqLiteCompiler);
 
-var _SqlPagingCompiler = _dereq_('./SqlPagingCompiler.js');
+var _SqlPagingCompiler = require('./SqlPagingCompiler.js');
 
 var _SqlPagingCompiler2 = _interopRequireDefault(_SqlPagingCompiler);
 
-var _SqlOrderCompiler = _dereq_('./SqlOrderCompiler.js');
+var _SqlOrderCompiler = require('./SqlOrderCompiler.js');
 
 var _SqlOrderCompiler2 = _interopRequireDefault(_SqlOrderCompiler);
 
-var _SqlProjectionCompiler = _dereq_('./SqlProjectionCompiler.js');
+var _SqlProjectionCompiler = require('./SqlProjectionCompiler.js');
 
 var _SqlProjectionCompiler2 = _interopRequireDefault(_SqlProjectionCompiler);
 
-var _SqlExpressionMonitor = _dereq_('./SqlExpressionMonitor.js');
+var _SqlExpressionMonitor = require('./SqlExpressionMonitor.js');
 
 var _SqlExpressionMonitor2 = _interopRequireDefault(_SqlExpressionMonitor);
 
-var _SqlFilterCompiler = _dereq_('./SqlFilterCompiler.js');
+var _SqlFilterCompiler = require('./SqlFilterCompiler.js');
 
 var _SqlFilterCompiler2 = _interopRequireDefault(_SqlFilterCompiler);
 
-var _sqLite_ModelBinderCompiler = _dereq_('./ModelBinder/sqLite_ModelBinderCompiler.js');
+var _sqLite_ModelBinderCompiler = require('./ModelBinder/sqLite_ModelBinderCompiler.js');
 
 var _sqLite_ModelBinderCompiler2 = _interopRequireDefault(_sqLite_ModelBinderCompiler);
 
@@ -2548,3 +2547,5 @@ module.exports = exports['default'];
 },{"../../DbClient/DbCommand.js":1,"../../DbClient/DbConnection.js":2,"../../DbClient/JayStorageClient/JayStorageCommand.js":3,"../../DbClient/JayStorageClient/JayStorageConnection.js":4,"../../DbClient/OpenDatabaseClient/OpenDbCommand.js":5,"../../DbClient/OpenDatabaseClient/OpenDbConnection.js":6,"../../DbClient/SqLiteNjClient/SqLiteNjCommand.js":7,"../../DbClient/SqLiteNjClient/SqLiteNjConnection.js":8,"./ModelBinder/sqLite_ModelBinderCompiler.js":9,"./SqLiteCompiler.js":10,"./SqLiteConverter.js":11,"./SqLiteStorageProvider.js":12,"./SqlExpressionMonitor.js":13,"./SqlFilterCompiler.js":14,"./SqlOrderCompiler.js":15,"./SqlPagingCompiler.js":16,"./SqlProjectionCompiler.js":17,"jaydata/core":"jaydata/core"}]},{},[18])(18)
 });
 
+	});
+})();

@@ -1,4 +1,4 @@
-// JayData 1.5.5 RC
+// JayData 1.5.1 CTP
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -11,7 +11,16 @@
 //     Zoltán Gyebrovszki, Gábor Dolla
 //
 // More info: http://jaydata.org
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define("jaydata/odata",["jaydata/core"],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function(){
+	var interopDefine;
+	if (typeof define != 'function' || (typeof define == 'function' && !define.amd)){
+		interopDefine = function(deps, callback){
+			callback();
+		};
+	}else interopDefine = define;
+
+	interopDefine(['jaydata'], function(){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19,7 +28,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.strategy = undefined;
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -101,7 +110,7 @@ var strategy = {
 
 exports.strategy = strategy;
 
-},{"jaydata/core":"jaydata/core"}],2:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -120,7 +129,7 @@ var strategy = {
 
 exports.strategy = strategy;
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -128,7 +137,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.strategy = undefined;
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -177,46 +186,46 @@ var strategy = {
 
 exports.strategy = strategy;
 
-},{"jaydata/core":"jaydata/core"}],4:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _oDataConverter = _dereq_('./oDataConverter.js');
+var _oDataConverter = require('./oDataConverter.js');
 
 var _oDataConverter2 = _interopRequireDefault(_oDataConverter);
 
-var _oDataProvider = _dereq_('./oDataProvider.js');
+var _oDataProvider = require('./oDataProvider.js');
 
 var _oDataProvider2 = _interopRequireDefault(_oDataProvider);
 
-var _oDataCompiler = _dereq_('./oDataCompiler.js');
+var _oDataCompiler = require('./oDataCompiler.js');
 
 var _oDataCompiler2 = _interopRequireDefault(_oDataCompiler);
 
-var _oDataWhereCompiler = _dereq_('./oDataWhereCompiler.js');
+var _oDataWhereCompiler = require('./oDataWhereCompiler.js');
 
 var _oDataWhereCompiler2 = _interopRequireDefault(_oDataWhereCompiler);
 
-var _oDataIncludeCompiler = _dereq_('./oDataIncludeCompiler.js');
+var _oDataIncludeCompiler = require('./oDataIncludeCompiler.js');
 
 var _oDataIncludeCompiler2 = _interopRequireDefault(_oDataIncludeCompiler);
 
-var _oDataOrderCompiler = _dereq_('./oDataOrderCompiler.js');
+var _oDataOrderCompiler = require('./oDataOrderCompiler.js');
 
 var _oDataOrderCompiler2 = _interopRequireDefault(_oDataOrderCompiler);
 
-var _oDataPagingCompiler = _dereq_('./oDataPagingCompiler.js');
+var _oDataPagingCompiler = require('./oDataPagingCompiler.js');
 
 var _oDataPagingCompiler2 = _interopRequireDefault(_oDataPagingCompiler);
 
-var _oDataProjectionCompiler = _dereq_('./oDataProjectionCompiler.js');
+var _oDataProjectionCompiler = require('./oDataProjectionCompiler.js');
 
 var _oDataProjectionCompiler2 = _interopRequireDefault(_oDataProjectionCompiler);
 
@@ -225,10 +234,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _core2.default;
 module.exports = exports['default'];
 
-},{"./oDataCompiler.js":5,"./oDataConverter.js":6,"./oDataIncludeCompiler.js":7,"./oDataOrderCompiler.js":8,"./oDataPagingCompiler.js":9,"./oDataProjectionCompiler.js":10,"./oDataProvider.js":11,"./oDataWhereCompiler.js":13,"jaydata/core":"jaydata/core"}],5:[function(_dereq_,module,exports){
+},{"./oDataCompiler.js":5,"./oDataConverter.js":6,"./oDataIncludeCompiler.js":7,"./oDataOrderCompiler.js":8,"./oDataPagingCompiler.js":9,"./oDataProjectionCompiler.js":10,"./oDataProvider.js":11,"./oDataWhereCompiler.js":13,"jaydata/core":"jaydata/core"}],5:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -499,11 +508,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }, {});
 
-},{"jaydata/core":"jaydata/core"}],6:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],6:[function(require,module,exports){
 (function (global){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -670,9 +679,7 @@ _core2.default.oDataConverter = {
         }
     },
     toDb: {
-        '$data.Enum': function $dataEnum(e, enumType) {
-            return e !== null && e !== undefined ? enumType && enumType.getEnumName ? enumType.getEnumName(e) : "" : e;
-        },
+        '$data.Enum': _core2.default.Container.proxyConverter,
         '$data.Entity': _core2.default.Container.proxyConverter,
         '$data.Byte': _core2.default.Container.proxyConverter,
         '$data.SByte': _core2.default.Container.proxyConverter,
@@ -1201,7 +1208,7 @@ _core2.default.oDataConverter = {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"jaydata/core":"jaydata/core"}],7:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1211,7 +1218,7 @@ exports.ODataIncludeFragment = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1246,8 +1253,8 @@ var ODataIncludeFragment = exports.ODataIncludeFragment = function () {
             }
 
             if (this.name) {
-                for (var _i = 0; _i < this.$operators.length; _i++) {
-                    var operator = this.$operators[_i];
+                for (var i = 0; i < this.$operators.length; i++) {
+                    var operator = this.$operators[i];
                     var values = this[operator];
                     for (var j = 0; j < values.length; j++) {
                         if (data) data += ',';
@@ -1411,10 +1418,10 @@ _core2.default.storageProviders.oData.ODataIncludeFragment = ODataIncludeFragmen
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],8:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],8:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1531,10 +1538,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],9:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],9:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1567,10 +1574,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],10:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],10:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1746,28 +1753,59 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],11:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],11:[function(require,module,exports){
+(function (global){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _oDataRequestActivities = _dereq_('./oDataRequestActivities.js');
+var _jaydataOdatajs = (typeof window !== "undefined" ? window['odatajs'] : typeof global !== "undefined" ? global['odatajs'] : null);
+
+var odatajs = _interopRequireWildcard(_jaydataOdatajs);
+
+var _oDataRequestActivities = require('./oDataRequestActivities.js');
 
 var activities = _interopRequireWildcard(_oDataRequestActivities);
 
-var _empty = _dereq_('./SaveStrategies/empty');
+var _empty = require('./SaveStrategies/empty');
 
-var _single = _dereq_('./SaveStrategies/single');
+var _single = require('./SaveStrategies/single');
 
-var _batch = _dereq_('./SaveStrategies/batch');
+var _batch = require('./SaveStrategies/batch');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var OData = _core2.default.__global['OData'];
+var datajs = _core2.default.__global['datajs'];
+
+var _datajsPatch;
+_datajsPatch = function datajsPatch(OData) {
+    // just datajs-1.1.0
+    if (OData && OData.jsonHandler && 'useJsonLight' in OData.jsonHandler && (typeof datajs === 'undefined' ? 'undefined' : _typeof(datajs)) === 'object' && !datajs.version) {
+        _core2.default.Trace.log('!!!!!!! - patch datajs 1.1.0');
+        var oldread = OData.defaultHandler.read;
+        OData.defaultHandler.read = function (p, context) {
+            delete context.contentType;
+            delete context.dataServiceVersion;
+
+            oldread.apply(this, arguments);
+        };
+        var oldwrite = OData.defaultHandler.write;
+        OData.defaultHandler.write = function (p, context) {
+            delete context.contentType;
+            delete context.dataServiceVersion;
+
+            oldwrite.apply(this, arguments);
+        };
+    }
+    _datajsPatch = function datajsPatch() {};
+};
 
 _core2.default.defaults = _core2.default.defaults || {};
 _core2.default.defaults.OData = _core2.default.defaults.OData || {};
@@ -1914,14 +1952,19 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
             UpdateMethod: 'PATCH'
         }, cfg);
 
-        if (typeof _core2.default.odatajs === 'undefined' || typeof _core2.default.odatajs.oData === 'undefined') {
+        if (this.providerConfiguration.maxDataServiceVersion === "4.0") {
             if (typeof odatajs === 'undefined' || typeof odatajs.oData === 'undefined') {
                 _core.Guard.raise(new _core.Exception('odatajs is required', 'Not Found!'));
             } else {
                 this.oData = odatajs.oData;
             }
         } else {
-            this.oData = _core2.default.odatajs.oData;
+            if (typeof OData === 'undefined') {
+                _core.Guard.raise(new _core.Exception('datajs is required', 'Not Found!'));
+            } else {
+                this.oData = OData;
+                _datajsPatch(this.oData);
+            }
         }
 
         //this.fixkDataServiceVersions(cfg);
@@ -2601,25 +2644,25 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
 
     supportedBinaryOperators: {
         value: {
-            equal: { mapTo: 'eq', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            notEqual: { mapTo: 'ne', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            equalTyped: { mapTo: 'eq', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            notEqualTyped: { mapTo: 'ne', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            greaterThan: { mapTo: 'gt', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            greaterThanOrEqual: { mapTo: 'ge', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
+            equal: { mapTo: 'eq', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            notEqual: { mapTo: 'ne', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            equalTyped: { mapTo: 'eq', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            notEqualTyped: { mapTo: 'ne', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            greaterThan: { mapTo: 'gt', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            greaterThanOrEqual: { mapTo: 'ge', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
 
-            lessThan: { mapTo: 'lt', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            lessThenOrEqual: { mapTo: 'le', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            or: { mapTo: 'or', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            and: { mapTo: 'and', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
+            lessThan: { mapTo: 'lt', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            lessThenOrEqual: { mapTo: 'le', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            or: { mapTo: 'or', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            and: { mapTo: 'and', dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
 
-            add: { mapTo: 'add', dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            divide: { mapTo: 'div', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            multiply: { mapTo: 'mul', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            subtract: { mapTo: 'sub', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
-            modulo: { mapTo: 'mod', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] },
+            add: { mapTo: 'add', dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            divide: { mapTo: 'div', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            multiply: { mapTo: 'mul', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            subtract: { mapTo: 'sub', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
+            modulo: { mapTo: 'mod', allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] },
 
-            "in": { mapTo: "in", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression] }
+            "in": { mapTo: "in", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression] }
         }
     },
 
@@ -2634,126 +2677,126 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
             /* string functions */
 
             contains: {
-                mapTo: "contains",
-                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
-                parameters: [{ name: "@expression" }, { name: "substring", dataType: "string" }]
+                mapTo: "substringof",
+                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
+                parameters: [{ name: "substring", dataType: "string" }, { name: "@expression" }]
             },
 
             startsWith: {
                 mapTo: "startswith",
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }, { name: "strFragment", dataType: "string" }]
             },
 
             endsWith: {
                 mapTo: "endswith",
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }, { name: "strFragment", dataType: "string" }]
             },
 
             length: [{
                 allowedType: 'string',
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.ProjectionExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.ProjectionExpression],
                 parameters: [{ name: "@expression", dataType: "string" }]
             }, {
                 allowedType: 'GeographyLineString',
                 mapTo: "geo.length",
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: ['GeographyLineString'] }],
                 fixedDataType: 'decimal'
             }, {
                 allowedType: 'GeometryLineString',
                 mapTo: "geo.length",
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: 'GeometryLineString' }],
                 fixedDataType: 'decimal'
             }],
 
             strLength: {
                 mapTo: "length",
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.ProjectionExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.ProjectionExpression],
                 parameters: [{ name: "@expression", dataType: "string" }]
             },
 
             indexOf: {
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 mapTo: "indexof",
                 baseIndex: 1,
                 parameters: [{ name: '@expression', dataType: "string" }, { name: 'strFragment', dataType: 'string' }]
             },
 
             replace: {
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: '@expression', dataType: "string" }, { name: 'strFrom', dataType: 'string' }, { name: 'strTo', dataType: 'string' }]
             },
 
             substr: {
                 mapTo: "substring",
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }, { name: "startFrom", dataType: "number" }, { name: "length", dataType: "number", optional: "true" }]
             },
 
             toLowerCase: {
                 mapTo: "tolower",
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }]
             },
 
             toUpperCase: {
                 mapTo: "toupper",
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }]
 
             },
 
             trim: {
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }]
             },
 
             concat: {
-                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "string", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "string" }, { name: "strFragment", dataType: "string" }]
             },
 
             /* data functions */
 
             day: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             hour: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             minute: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             month: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             second: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             year: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
 
             /* number functions */
             round: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             floor: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
             ceiling: {
-                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: "date" }]
             },
 
@@ -2761,13 +2804,13 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
             distance: [{
                 allowedType: 'GeographyPoint',
                 mapTo: "geo.distance",
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: 'GeographyPoint' }, { name: "to", dataType: 'GeographyPoint' }],
                 fixedDataType: 'decimal'
             }, {
                 allowedType: 'GeometryPoint',
                 mapTo: "geo.distance",
-                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "number", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: 'GeometryPoint' }, { name: "to", dataType: 'GeometryPoint' }],
                 fixedDataType: 'decimal'
             }],
@@ -2775,13 +2818,13 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
             intersects: [{
                 allowedType: 'GeographyPoint',
                 mapTo: "geo.intersects",
-                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: 'GeographyPoint' }, { name: "in", dataType: 'GeographyPolygon' }]
 
             }, {
                 allowedType: 'GeometryPoint',
                 mapTo: "geo.intersects",
-                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression, _core2.default.Expressions.SomeExpression, _core2.default.Expressions.EveryExpression],
+                dataType: "boolean", allowedIn: [_core2.default.Expressions.FilterExpression, _core2.default.Expressions.OrderExpression],
                 parameters: [{ name: "@expression", dataType: 'GeometryPoint' }, { name: "in", dataType: 'GeometryPolygon' }]
 
             }]
@@ -3053,7 +3096,9 @@ var _checkODataMode = function _checkODataMode(context, functionName) {
 
 _core2.default.StorageProviderBase.registerProvider("oData", _core2.default.storageProviders.oData.oDataProvider);
 
-},{"./SaveStrategies/batch":1,"./SaveStrategies/empty":2,"./SaveStrategies/single":3,"./oDataRequestActivities.js":12,"jaydata/core":"jaydata/core"}],12:[function(_dereq_,module,exports){
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
+},{"./SaveStrategies/batch":1,"./SaveStrategies/empty":2,"./SaveStrategies/single":3,"./oDataRequestActivities.js":12,"jaydata/core":"jaydata/core"}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3295,10 +3340,10 @@ var ClearRequestData = exports.ClearRequestData = function (_RequestActivity2) {
     return ClearRequestData;
 }(RequestActivity);
 
-},{}],13:[function(_dereq_,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -3504,25 +3549,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
         for (var i = 0; i < args.length; i++) {
             var arg = args[i];
+            if (arg && arg.value instanceof _core2.default.Queryable) {
+                var frameExpression = new opDef.frameType(arg.value.expression);
+                var preparator = _core.Container.createQueryExpressionCreator(arg.value.entityContext);
+                var prep_expression = preparator.Visit(frameExpression);
 
-            if (!opDef.method) {
                 var compiler = new _core2.default.storageProviders.oData.oDataWhereCompiler(this.provider, true);
                 var frameContext = { data: "" };
+                var compiled = compiler.compile(prep_expression, frameContext);
 
-                if (arg && arg.value instanceof _core2.default.Queryable) {
-                    var preparator = _core.Container.createQueryExpressionCreator(arg.value.entityContext);
-                    var prep_expression = preparator.Visit(arg.value.expression);
-                    arg = prep_expression;
-                } else if (arg) {
-                    arg = arg.selector;
-                }
-
-                var compiled = compiler.compile(arg, frameContext);
-
-                if (frameContext.data) {
-                    context.data += frameContext.lambda + ': ' + frameContext.data;
-                }
-            }
+                context.data += frameContext.lambda + ': ' + frameContext.data;
+            };
         }
         context.data += ")";
     }
@@ -3531,3 +3568,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 },{"jaydata/core":"jaydata/core"}]},{},[4])(4)
 });
 
+	});
+})();

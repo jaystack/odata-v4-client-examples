@@ -1,4 +1,4 @@
-// JayData 1.5.5 RC
+// JayData 1.5.1 CTP
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -11,10 +11,19 @@
 //     Zoltán Gyebrovszki, Gábor Dolla
 //
 // More info: http://jaydata.org
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define("jaydata/inmemory",["jaydata/core"],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function(){
+	var interopDefine;
+	if (typeof define != 'function' || (typeof define == 'function' && !define.amd)){
+		interopDefine = function(deps, callback){
+			callback();
+		};
+	}else interopDefine = define;
+
+	interopDefine(['jaydata'], function(){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -114,10 +123,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 }, {});
 
-},{"jaydata/core":"jaydata/core"}],2:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],2:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -356,10 +365,10 @@ _core2.default.InMemoryConverter = {
     }
 };
 
-},{"jaydata/core":"jaydata/core"}],3:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],3:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -484,10 +493,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],4:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],4:[function(require,module,exports){
 'use strict';
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -873,30 +882,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _core2.default.StorageProviderBase.registerProvider("InMemory", _core2.default.storageProviders.InMemory.InMemoryProvider);
 _core2.default.StorageProviderBase.registerProvider("LocalStore", _core2.default.storageProviders.InMemory.LocalStorageProvider);
 
-},{"jaydata/core":"jaydata/core"}],5:[function(_dereq_,module,exports){
+},{"jaydata/core":"jaydata/core"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _core = _dereq_('jaydata/core');
+var _core = require('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _InMemoryConverter = _dereq_('./InMemoryConverter.js');
+var _InMemoryConverter = require('./InMemoryConverter.js');
 
 var _InMemoryConverter2 = _interopRequireDefault(_InMemoryConverter);
 
-var _InMemoryProvider = _dereq_('./InMemoryProvider.js');
+var _InMemoryProvider = require('./InMemoryProvider.js');
 
 var _InMemoryProvider2 = _interopRequireDefault(_InMemoryProvider);
 
-var _InMemoryCompiler = _dereq_('./InMemoryCompiler.js');
+var _InMemoryCompiler = require('./InMemoryCompiler.js');
 
 var _InMemoryCompiler2 = _interopRequireDefault(_InMemoryCompiler);
 
-var _InMemoryFunctionCompiler = _dereq_('./InMemoryFunctionCompiler.js');
+var _InMemoryFunctionCompiler = require('./InMemoryFunctionCompiler.js');
 
 var _InMemoryFunctionCompiler2 = _interopRequireDefault(_InMemoryFunctionCompiler);
 
@@ -908,3 +917,5 @@ module.exports = exports['default'];
 },{"./InMemoryCompiler.js":1,"./InMemoryConverter.js":2,"./InMemoryFunctionCompiler.js":3,"./InMemoryProvider.js":4,"jaydata/core":"jaydata/core"}]},{},[5])(5)
 });
 
+	});
+})();
