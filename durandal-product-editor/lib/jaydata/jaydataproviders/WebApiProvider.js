@@ -1,4 +1,4 @@
-// JayData 1.5.1 CTP
+// JayData 1.5.10 
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -11,21 +11,12 @@
 //     Zoltán Gyebrovszki, Gábor Dolla
 //
 // More info: http://jaydata.org
-(function(){
-	var interopDefine;
-	if (typeof define != 'function' || (typeof define == 'function' && !define.amd)){
-		interopDefine = function(deps, callback){
-			callback();
-		};
-	}else interopDefine = define;
-
-	interopDefine(['jaydata'], function(){
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define("jaydata/webapi",["jaydata/core"],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -195,12 +186,12 @@ _core2.default.WebApiConverter = {
     }
 };
 
-},{"jaydata/core":"jaydata/core"}],2:[function(require,module,exports){
+},{"jaydata/core":"jaydata/core"}],2:[function(_dereq_,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -1561,22 +1552,22 @@ _core2.default.StorageProviderBase.registerProvider("webApi", _core2.default.sto
     }
 });
 
-},{"jaydata/core":"jaydata/core"}],3:[function(require,module,exports){
+},{"jaydata/core":"jaydata/core"}],3:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _WebApiConverter = require('./WebApiConverter.js');
+var _WebApiConverter = _dereq_('./WebApiConverter.js');
 
 var _WebApiConverter2 = _interopRequireDefault(_WebApiConverter);
 
-var _WebApiProvider = require('./WebApiProvider.js');
+var _WebApiProvider = _dereq_('./WebApiProvider.js');
 
 var _WebApiProvider2 = _interopRequireDefault(_WebApiProvider);
 
@@ -1588,5 +1579,3 @@ module.exports = exports['default'];
 },{"./WebApiConverter.js":1,"./WebApiProvider.js":2,"jaydata/core":"jaydata/core"}]},{},[3])(3)
 });
 
-	});
-})();

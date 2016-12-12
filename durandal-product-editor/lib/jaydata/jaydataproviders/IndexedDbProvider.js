@@ -1,4 +1,4 @@
-// JayData 1.5.1 CTP
+// JayData 1.5.10 
 // Dual licensed under MIT and GPL v2
 // Copyright JayStack Technologies (http://jaydata.org/licensing)
 //
@@ -11,19 +11,10 @@
 //     Zoltán Gyebrovszki, Gábor Dolla
 //
 // More info: http://jaydata.org
-(function(){
-	var interopDefine;
-	if (typeof define != 'function' || (typeof define == 'function' && !define.amd)){
-		interopDefine = function(deps, callback){
-			callback();
-		};
-	}else interopDefine = define;
-
-	interopDefine(['jaydata'], function(){
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define("jaydata/indexeddb",["jaydata/core"],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.$data = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -31,6 +22,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _core2.default.IndexedDBConverter = {
     fromDb: {
+        '$data.Enum': function $dataEnum(v, enumType) {
+            return _core2.default.Container.convertTo(v, enumType);
+        },
         '$data.Byte': _core2.default.Container.proxyConverter,
         '$data.SByte': _core2.default.Container.proxyConverter,
         '$data.Decimal': _core2.default.Container.proxyConverter,
@@ -42,6 +36,8 @@ _core2.default.IndexedDBConverter = {
         '$data.Number': _core2.default.Container.proxyConverter,
         '$data.Date': _core2.default.Container.proxyConverter,
         '$data.DateTimeOffset': _core2.default.Container.proxyConverter,
+        '$data.Duration': _core2.default.Container.proxyConverter,
+        '$data.Day': _core2.default.Container.proxyConverter,
         '$data.Time': _core2.default.Container.proxyConverter,
         '$data.String': _core2.default.Container.proxyConverter,
         '$data.Boolean': _core2.default.Container.proxyConverter,
@@ -129,6 +125,7 @@ _core2.default.IndexedDBConverter = {
         }
     },
     toDb: {
+        '$data.Enum': _core2.default.Container.proxyConverter,
         '$data.Byte': _core2.default.Container.proxyConverter,
         '$data.SByte': _core2.default.Container.proxyConverter,
         '$data.Decimal': _core2.default.Container.proxyConverter,
@@ -140,6 +137,8 @@ _core2.default.IndexedDBConverter = {
         '$data.Number': _core2.default.Container.proxyConverter,
         '$data.Date': _core2.default.Container.proxyConverter,
         '$data.DateTimeOffset': _core2.default.Container.proxyConverter,
+        '$data.Duration': _core2.default.Container.proxyConverter,
+        '$data.Day': _core2.default.Container.proxyConverter,
         '$data.Time': _core2.default.Container.proxyConverter,
         '$data.String': _core2.default.Container.proxyConverter,
         '$data.Boolean': _core2.default.Container.proxyConverter,
@@ -226,12 +225,12 @@ _core2.default.IndexedDBConverter = {
     }
 };
 
-},{"jaydata/core":"jaydata/core"}],2:[function(require,module,exports){
+},{"jaydata/core":"jaydata/core"}],2:[function(_dereq_,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
@@ -329,7 +328,7 @@ _core2.default.Class.define('$data.storageProviders.indexedDb.IndexedDBStoragePr
         if (idbOpenDBRequest && typeof idbOpenDBRequest.prototype.setCallbacks !== 'function') idbOpenDBRequest.prototype.setCallbacks = setCallbacks;
     },
     supportedDataTypes: {
-        value: [_core2.default.Integer, _core2.default.Number, _core2.default.Date, _core2.default.String, _core2.default.Boolean, _core2.default.Blob, _core2.default.Array, _core2.default.Object, _core2.default.Guid, _core2.default.GeographyPoint, _core2.default.GeographyLineString, _core2.default.GeographyPolygon, _core2.default.GeographyMultiPoint, _core2.default.GeographyMultiLineString, _core2.default.GeographyMultiPolygon, _core2.default.GeographyCollection, _core2.default.GeometryPoint, _core2.default.GeometryLineString, _core2.default.GeometryPolygon, _core2.default.GeometryMultiPoint, _core2.default.GeometryMultiLineString, _core2.default.GeometryMultiPolygon, _core2.default.GeometryCollection, _core2.default.Byte, _core2.default.SByte, _core2.default.Decimal, _core2.default.Float, _core2.default.Int16, _core2.default.Int32, _core2.default.Int64, _core2.default.Time, _core2.default.DateTimeOffset],
+        value: [_core2.default.Integer, _core2.default.Number, _core2.default.Date, _core2.default.String, _core2.default.Boolean, _core2.default.Blob, _core2.default.Array, _core2.default.Object, _core2.default.Guid, _core2.default.GeographyPoint, _core2.default.GeographyLineString, _core2.default.GeographyPolygon, _core2.default.GeographyMultiPoint, _core2.default.GeographyMultiLineString, _core2.default.GeographyMultiPolygon, _core2.default.GeographyCollection, _core2.default.GeometryPoint, _core2.default.GeometryLineString, _core2.default.GeometryPolygon, _core2.default.GeometryMultiPoint, _core2.default.GeometryMultiLineString, _core2.default.GeometryMultiPolygon, _core2.default.GeometryCollection, _core2.default.Byte, _core2.default.SByte, _core2.default.Decimal, _core2.default.Float, _core2.default.Int16, _core2.default.Int32, _core2.default.Int64, _core2.default.Duration, _core2.default.Day, _core2.default.Time, _core2.default.DateTimeOffset],
         writable: false
     },
     fieldConverter: { value: _core2.default.IndexedDBConverter },
@@ -914,22 +913,22 @@ _core2.default.Class.define('$data.storageProviders.indexedDb.IndexedDBStoragePr
 
 if (_core2.default.storageProviders.indexedDb.IndexedDBStorageProvider.isSupported) _core2.default.StorageProviderBase.registerProvider('indexedDb', _core2.default.storageProviders.indexedDb.IndexedDBStorageProvider);
 
-},{"jaydata/core":"jaydata/core"}],3:[function(require,module,exports){
+},{"jaydata/core":"jaydata/core"}],3:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _core = require('jaydata/core');
+var _core = _dereq_('jaydata/core');
 
 var _core2 = _interopRequireDefault(_core);
 
-var _IndexedDBConverter = require('./IndexedDBConverter.js');
+var _IndexedDBConverter = _dereq_('./IndexedDBConverter.js');
 
 var _IndexedDBConverter2 = _interopRequireDefault(_IndexedDBConverter);
 
-var _IndexedDBStorageProvider = require('./IndexedDBStorageProvider.js');
+var _IndexedDBStorageProvider = _dereq_('./IndexedDBStorageProvider.js');
 
 var _IndexedDBStorageProvider2 = _interopRequireDefault(_IndexedDBStorageProvider);
 
@@ -941,5 +940,3 @@ module.exports = exports['default'];
 },{"./IndexedDBConverter.js":1,"./IndexedDBStorageProvider.js":2,"jaydata/core":"jaydata/core"}]},{},[3])(3)
 });
 
-	});
-})();

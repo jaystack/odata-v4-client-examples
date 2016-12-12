@@ -7,7 +7,7 @@ define(function (require) {
 
     var config = {
         provider: 'oData',
-        oDataServiceHost: "http://localhost:3000/odata"
+        oDataServiceHost: "http://odata-v4-demo.jaystack.net/api"
     };
 
     function getContext() {
@@ -15,7 +15,7 @@ define(function (require) {
     }
 
     function init() {
-        new Northwind.NorthwindContext(config)
+        new Northwind.Default(config)
             .onReady()
             .then(function (ctx) {
                 context = ctx;
